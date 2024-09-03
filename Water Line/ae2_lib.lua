@@ -23,3 +23,5 @@ function ae2_lib.requestRecipeCancel(recipe, amount, cpuId)
     os.sleep(1)
     cpu.cpu.cancel()
 end
+
+return ae2_lib
