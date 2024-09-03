@@ -13,14 +13,14 @@ function ae2_lib.getRecipe(name)
     return nil
 end
 
-function ae2_lib.requestRecipeCancel(recipe, amount, cpuId)
+function ae2_lib.requestRecipeCancel(recipe, amount, cpuId, delay)
     component = require("component")
     os = require("os")
 
     me = component.me_interface
     cpu = me.getCpus()[cpuId]
     recipe.request(amount, False, cpu["name"])
-    os.sleep(1)
+    os.sleep(delay)
     cpu.cpu.cancel()
 end
 

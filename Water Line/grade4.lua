@@ -28,13 +28,13 @@ while true do
             if diff < 0 then
                 recipe_count = - diff // 0.01
                 print("Request pH increase " .. tonumber(recipe_count) .. " times")
-                ae2_lib.requestRecipeCancel(inc_pH, recipe_count, 1)
+                ae2_lib.requestRecipeCancel(inc_pH, recipe_count, 1, 2)
             else
                 recipe_count = diff // 0.01
                 print("Request pH decrease " .. tonumber(recipe_count) .. " times")
-                ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1)
+                ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1, 2)
             end
         end
-        os.sleep(5)
+        os.sleep(2)
     end
 end
