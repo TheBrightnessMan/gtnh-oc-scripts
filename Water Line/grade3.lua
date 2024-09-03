@@ -11,13 +11,13 @@ while true do
     request_me = nil
     for _, craftable in pairs(craftables) do
         item = craftable.getItemStack()
-        if item["label"] == "Input Polyaluminium Chloride" do
+        if item["label"] == "Input Polyaluminium Chloride" then
             request_me = craftable
             break
         end
     end
 
-    if request_me == nil do
+    if request_me == nil then
         error("Item not found!")
     end
 
