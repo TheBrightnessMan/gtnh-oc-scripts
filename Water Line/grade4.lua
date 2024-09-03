@@ -34,7 +34,7 @@ while true do
                 print("Request pH decrease " .. tonumber(recipe_count) .. " times")
                 ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1)
             end
-            os.sleep(3)
         end
+        os.sleep(5)
     end
 end
