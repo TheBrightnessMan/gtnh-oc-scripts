@@ -29,17 +29,17 @@ end
 while true do
     if gt.getWorkMaxProgress() == 0 then
         -- Machine is off, come back later
-        os.sleep(5)
+        os.sleep(10)
     else
         info = gt.getSensorInformation()
-        amount_str = info[3]
+        amount_str = info[4]
         length = string.len(amount_str)
         amount = tonumber(string.sub(amount_str, 48, length - 1))
 
         if amount == 0 then
             addFluid()
         end
-        
+
         diff = (2400 - gt.getWorkProgress()) // 20
         os.sleep(diff + 3)
     end
