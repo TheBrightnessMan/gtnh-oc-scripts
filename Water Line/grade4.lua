@@ -18,7 +18,7 @@ while true do
         os.sleep(10)
     else
         info = gt.getSensorInformation()
-        amount_str = info[3]
+        amount_str = info[4]
         length = string.len(amount_str)
         amount = tonumber(string.sub(amount_str, 22, length - 3))
 
