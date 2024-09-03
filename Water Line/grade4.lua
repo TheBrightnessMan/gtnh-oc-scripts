@@ -7,7 +7,7 @@ inc_pH = ae2_lib.getRecipe("Inc pH")
 dec_pH = ae2_lib.getRecipe("Dec pH")
 
 if inc_pH == nil then error("Inc pH recipe not found!") end
-if dec_ph == nil then error("Dec pH recipe not found!") end
+if dec_pH == nil then error("Dec pH recipe not found!") end
 
 print("Both recipes found!")
 
