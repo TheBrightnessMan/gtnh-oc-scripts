@@ -20,3 +20,4 @@ function requestRecipeCancel(recipe, amount, cpuId)
     recipe.request(amount, False, cpu["name"])
     os.sleep(1)
     cpu.cpu.cancel()
+end
