@@ -26,3 +26,4 @@ while true do
     cpu.cpu.cancel()
     diff = gt.getWorkMaxProgress() - gt.getWorkProgress()
     os.sleep(diff + 3)
+end
