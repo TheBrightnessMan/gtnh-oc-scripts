@@ -35,6 +35,8 @@ while true do
                 ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1, 2)
             end
         end
-        os.sleep(2)
+        diff = (2400 - gt.getWorkProgress()) // 20
+        print("Sleeping for " .. tonumber(diff + 3) .. " seconds...")
+        os.sleep(diff + 3)
     end
 end
