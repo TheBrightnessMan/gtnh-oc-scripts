@@ -24,6 +24,6 @@ while true do
     request_me.request(1, False, cpu["name"])
     os.sleep(1)
     cpu.cpu.cancel()
-    diff = gt.getWorkMaxProgress() - gt.getWorkProgress()
+    diff = (gt.getWorkMaxProgress() - gt.getWorkProgress()) // 20
     os.sleep(diff + 3)
 end
