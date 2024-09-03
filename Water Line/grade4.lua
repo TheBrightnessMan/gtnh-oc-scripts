@@ -9,8 +9,12 @@ dec_pH = ae2_lib.getRecipe("Dec pH")
 if inc_pH == nil then error("Inc pH recipe not found!") end
 if dec_ph == nil then error("Dec pH recipe not found!") end
 
+print("Both recipes found!")
+
 while true do
+    print("Starting cycle...")
     if gt.getWorkMaxProgress() == 0 then
+        print("Machine disabled, sleep 10...")
         os.sleep(10)
     else
         info = gt.getSensorInformation()
@@ -20,10 +24,15 @@ while true do
 
         if amount ~= 7 then
             diff = amount - 7
+            print("diff: " .. tostring(diff))
             if diff < 0 then
-                ae2_lib.requestRecipeCancel(inc_pH, - diff // 0.01, 1)
+                recipe_count = - diff // 0.01
+                print("Request pH increase " .. tonumber(recipe_count) .. " times")
+                ae2_lib.requestRecipeCancel(inc_pH, recipe_count, 1)
             else
-                ae2_lib.requestRecipeCancel(dec_pH, diff // 0.01, 1)
+                recipe_count = diff // 0.01
+                print("Request pH decrease " .. tonumber(recipe_count) .. " times")
+                ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1)
             os.sleep(3)
     end
 end
