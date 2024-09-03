@@ -1,4 +1,6 @@
-function getRecipe(name)
+local ae2_lib = {}
+
+function ae2_lib.getRecipe(name)
     component = require("component")
     me = component.me_interface
     craftables = me.getCraftables()
@@ -11,7 +13,7 @@ function getRecipe(name)
     return nil
 end
 
-function requestRecipeCancel(recipe, amount, cpuId)
+function ae2_lib.requestRecipeCancel(recipe, amount, cpuId)
     component = require("component")
     os = require("os")
 
