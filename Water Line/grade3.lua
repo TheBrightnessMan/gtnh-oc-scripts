@@ -20,7 +20,7 @@ while true do
 
         if amount == 0 then
             print("Requesting fluids...")
-            ae2_lib.requestRecipeCancel(recipe, 1, 1)
+            ae2_lib.requestRecipeCancel(recipe, 1, 1, 1)
         end
 
         diff = (2400 - gt.getWorkProgress()) // 20
