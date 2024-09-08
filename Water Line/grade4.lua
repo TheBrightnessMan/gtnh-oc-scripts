@@ -3,11 +3,11 @@ os = require("os")
 ae2_lib = require("ae2_lib")
 gt = component.gt_machine
 
-inc_pH = ae2_lib.getRecipe("Inc pH")
-dec_pH = ae2_lib.getRecipe("Dec pH")
+inc_pH = ae2_lib.getRecipe("NaOH")
+dec_pH = ae2_lib.getRecipe("HCl")
 
-if inc_pH == nil then error("Inc pH recipe not found!") end
-if dec_pH == nil then error("Dec pH recipe not found!") end
+if inc_pH == nil then error("NaOH recipe not found!") end
+if dec_pH == nil then error("HCl recipe not found!") end
 
 print("Both recipes found!")
 
@@ -21,22 +21,23 @@ while true do
         amount_str = info[4]
         length = string.len(amount_str)
         amount = tonumber(string.sub(amount_str, 22, length - 3))
+        diff = amount - 7
 
-        if amount ~= 7 then
-            diff = amount - 7
+        if math.abs(diff) > 0.05 then
             print("diff: " .. tostring(diff))
             if diff < 0 then
                 recipe_count = - diff // 0.01
                 print("Request pH increase " .. tonumber(recipe_count) .. " times")
-                ae2_lib.requestRecipeCancel(inc_pH, recipe_count, 1, 2)
+                ae2_lib.requestRecipeCancel(inc_pH, recipe_count, 2, 2)
             else
                 recipe_count = diff // 0.01
                 print("Request pH decrease " .. tonumber(recipe_count) .. " times")
-                ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 1, 2)
+                ae2_lib.requestRecipeCancel(dec_pH, recipe_count, 2, 2)
             end
+        else
+            sleep = ((2400 - gt.getWorkProgress()) // 20) + 3
+            print("Sleeping for " .. tonumber(sleep) .. " seconds...")
+            os.sleep(sleep)
         end
-        diff = (2400 - gt.getWorkProgress()) // 20
-        print("Sleeping for " .. tonumber(diff + 3) .. " seconds...")
-        os.sleep(diff + 3)
     end
 end

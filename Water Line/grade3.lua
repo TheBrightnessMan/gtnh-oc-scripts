@@ -3,7 +3,7 @@ os = require("os")
 ae2_lib = require("ae2_lib")
 gt = component.gt_machine
 
-recipe = ae2_lib.getRecipe("Input Polyaluminium Chloride")
+recipe = ae2_lib.getRecipe("grade3 input")
 if recipe == nil then error("Recipe not found!") end
 print("Recipe found!")
 
@@ -23,8 +23,8 @@ while true do
             ae2_lib.requestRecipeCancel(recipe, 1, 1, 1)
         end
 
-        diff = (2400 - gt.getWorkProgress()) // 20
-        print("Sleeping for " .. tonumber(diff + 3) .. " seconds...")
-        os.sleep(diff + 3)
+        sleep = ((2400 - gt.getWorkProgress()) // 20) + 3
+        print("Sleeping for " .. tonumber(sleep) .. " seconds...")
+        os.sleep(sleep)
     end
 end
