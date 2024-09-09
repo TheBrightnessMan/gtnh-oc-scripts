@@ -18,7 +18,7 @@ while true do
         for i = 1, 3, 1 do
             print("Loop " .. tostring(i))
             print("Requesting 10 He Plasma recipes...")
-            ae2_lib.requestRecipeCancel(he_plasma, 10, 3, 2)
+            ae2_lib.requestRecipeCancel(he_plasma, 100, 3, 2)
             print("Waiting 11 seconds for plasma to be consumed...")
             os.sleep(11)
 
