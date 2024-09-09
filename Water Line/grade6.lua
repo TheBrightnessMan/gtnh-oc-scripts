@@ -35,6 +35,7 @@ while true do
             os.sleep(sleep)
         else
             if redstone.getInput(sides.bottom) > 0 then
+                print("Swapping...")
                 exportBus.setExportConfiguration(exportBusSide, database.address, lens + 1)
                 exportBus.exportIntoSlot(exportBusSide, lens + 1)
                 lens = (lens + 1) % 9
