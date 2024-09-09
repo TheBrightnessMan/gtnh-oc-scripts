@@ -9,7 +9,7 @@ coolant = ae2_lib.getRecipe("Coolant")
 if he_plasma == nil then error("He Plasma recipe not found!") end
 if coolant == nil then error("Coolant recipe not found!") end
 
-while True do
+while true do
     print("Starting cycle...")
     if gt.getWorkMaxProgress() == 0 then
         print("Machine disabled, sleep 10...")
