@@ -45,4 +45,6 @@ while true do
             else
                 os.sleep(1)
             end
+        end
+    end
 end
