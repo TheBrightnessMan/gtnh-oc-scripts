@@ -15,6 +15,7 @@ for i = 1, 6 do
 
     quarks[i] = ae2_lib.getRecipe(names[i] .. itemSuffix)
     if quarks[i] == nil then error("Quark " .. names[i] .. " not found!") end
+end
 
 while true do
     print("Starting cycle...")
