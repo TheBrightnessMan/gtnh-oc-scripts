@@ -46,11 +46,11 @@ while true do
                     print("Combo found! (" .. tonumber(i) .. ", " .. tonumber(j) .. ")")
                     quark1 = i
                     quark2 = j
-                    goto end
+                    goto complete
                 end
             end
         end
-        ::end::
+        ::complete::
         sleep = ((2400 - gt.getWorkProgress()) // 20) + 3
         print("Sleeping for " .. tonumber(sleep) .. " seconds...")
         os.sleep(sleep)
