@@ -33,7 +33,7 @@ while true do
                 success_String = info[#info]
                 success = string.sub(success_String, 44)
                 if success == "Yes" then
-                    print("Combo found! (" .. names[i] .. ", " .. names[j] .. ")")
+                    print("Combo found!")
                     goto complete
                 end
             end
@@ -45,10 +45,11 @@ while true do
         
         print("Checking for missing quarks...")
         for i = 1, 6 do
-            item = me.getItemsInNetwork({label = names[i]})[1]
+            item = me.getItemsInNetwork({label =(names[i] .. itemSuffix)})[1]
             if item.size < 10 then
-                print("Requesting " .. names[i] .. "...")
-                quarks[i].request(10 - item.size)
+                diff = 10 - item.size
+                print("Requesting " .. tostring(diff) " " .. item.name .. "...")
+                quarks[i].request(diff)
             end
         end
     end
