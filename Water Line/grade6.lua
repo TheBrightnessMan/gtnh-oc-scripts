@@ -24,28 +24,30 @@ while true do
     else
         info = gt.getSensorInformation()
         amount_str = info[4]
-        length = string.len(amount_str)
-        amount = tonumber(string.sub(amount_str, 35))
+        if amount_str ~= nil then 
+            length = string.len(amount_str)
+            amount = tonumber(string.sub(amount_str, 35))
 
-        if amount ~= nill then
-            if amount >= 10 then
-                print("10 swaps completed.")
-                lens = 8
-                sleep = ((2400 - gt.getWorkProgress()) // 20) + 1
-                print("Sleeping for " .. tonumber(sleep) .. " seconds...")
-                os.sleep(sleep)
-            else
-                if redstone.getInput(sides.bottom) > 0 then
-                    print("Swapping...")
-                    exportBus.setExportConfiguration(exportBusSide, database.address, lens + 1)
-                    exportBus.exportIntoSlot(exportBusSide, lens + 1)
-                    lens = (lens + 1) % 9
-                    importBus.setImportConfiguration(importBusSide, database.address, lens + 1)
-                    redstone.setOutput(sides.west, 15)
-                    os.sleep(1)
-                    redstone.setOutput(sides.west, 0)
+            if amount ~= nill then
+                if amount >= 10 then
+                    print("10 swaps completed.")
+                    lens = 8
+                    sleep = ((2400 - gt.getWorkProgress()) // 20) + 1
+                    print("Sleeping for " .. tonumber(sleep) .. " seconds...")
+                    os.sleep(sleep)
                 else
-                    os.sleep(1)
+                    if redstone.getInput(sides.bottom) > 0 then
+                        print("Swapping...")
+                        exportBus.setExportConfiguration(exportBusSide, database.address, lens + 1)
+                        exportBus.exportIntoSlot(exportBusSide, lens + 1)
+                        lens = (lens + 1) % 9
+                        importBus.setImportConfiguration(importBusSide, database.address, lens + 1)
+                        redstone.setOutput(sides.west, 15)
+                        os.sleep(1)
+                        redstone.setOutput(sides.west, 0)
+                    else
+                        os.sleep(1)
+                    end
                 end
             end
         end
