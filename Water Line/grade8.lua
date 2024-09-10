@@ -14,6 +14,7 @@ quarks[5] = ae2_lib.getRecipe("Charm")
 
 for i = 0, 5 do
     if quarks[i] == nil then error(tostring(i) .. " recipe not found!") end
+end
 
 while true do
     print("Starting cycle...")
