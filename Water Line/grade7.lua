@@ -20,7 +20,7 @@ if bit1_input[2] == nil then error("Kr recipe not found!") end
 if bit1_input[3] == nil then error("Xe recipe not found!") end
 if superconductor == nil then error("Superconductor recipe not found!") end
 if neutronium == nil then error("Nt recipe not found!") end
-if coolant == nil then error("grade7 Coolant recipe not found!")
+if coolant == nil then error("grade7 Coolant recipe not found!") end
 
 while true do
     print("Starting cycle...")
