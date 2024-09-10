@@ -2,7 +2,6 @@ component = require("component")
 os = require("os")
 ae2_lib = require("ae2_lib")
 gt = component.gt_machine
-redstone = component.redstone
 
 quarks = {}
 quarks[0] = ae2_lib.getRecipe("Up")
