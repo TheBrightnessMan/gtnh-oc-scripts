@@ -45,10 +45,10 @@ while true do
         
         print("Checking for missing quarks...")
         for i = 1, 6 do
-            item = me.getItemsInNetwork({label =(names[i] .. itemSuffix)})[1]
+            item = me.getItemsInNetwork({label = (names[i] .. itemSuffix)})[1]
             if item.size < 10 then
                 diff = 10 - item.size
-                print("Requesting " .. tostring(diff) " " .. item.name .. "...")
+                print("Requesting " .. tostring(diff) .. " " .. item.name .. "...")
                 quarks[i].request(diff)
             end
         end
