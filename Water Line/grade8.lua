@@ -11,7 +11,7 @@ itemSuffix = "-Quark Releasing Catalyst"
 
 for i = 1, 6 do
     recipes[i] = ae2_lib.getRecipe(names[i])
-    if recipe[i] == nil then error("Dummy " .. names[i] .. " not found!") end
+    if recipes[i] == nil then error("Dummy " .. names[i] .. " not found!") end
 
     quarks[i] = ae2_lib.getRecipe(names[i] .. itemSuffix)
     if quarks[i] == nil then error("Quark " .. names[i] .. " not found!") end
