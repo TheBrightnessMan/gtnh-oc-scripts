@@ -45,7 +45,7 @@ while true do
         
         print("Checking for missing quarks...")
         for i = 1, 6 do
-            item = me.getItemsInNetwork({label = names[i]})
+            item = me.getItemsInNetwork({label = names[i]})[1]
             if item.size < 10 then
                 print("Requesting " .. names[i] .. "...")
                 quarks[i].request(10 - item.size)
