@@ -48,7 +48,7 @@ while true do
             item = me.getItemsInNetwork({label = (names[i] .. itemSuffix)})[1]
             if item.size < 10 then
                 diff = 10 - item.size
-                print("Requesting " .. tostring(diff) .. " " .. item.name .. "...")
+                print("Requesting " .. tostring(diff) .. " " .. item.label .. "...")
                 quarks[i].request(diff)
             end
         end
