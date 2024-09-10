@@ -12,7 +12,7 @@ bit1_input[3] = ae2_lib.getRecipe("Xe")
 
 superconductor = ae2_lib.getRecipe("Superconductor")
 neutronium = ae2_lib.getRecipe("Nt")
-coolant = ae2_lib.("grade7 Coolant")
+coolant = ae2_lib.getRecipe("grade7 Coolant")
 
 if bit1_input[0] == nil then error("He recipe not found!") end
 if bit1_input[1] == nil then error("Ne recipe not found!") end
