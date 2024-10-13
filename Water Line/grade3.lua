@@ -3,7 +3,7 @@ os = require("os")
 ae2_lib = require("ae2_lib")
 gt = component.gt_machine
 
-recipe = ae2_lib.getRecipe("grade3 input")
+recipe = ae2_lib.getRecipe("Grade 3")
 if recipe == nil then error("Recipe not found!") end
 print("Recipe found!")
 
