@@ -13,23 +13,20 @@ function ae2_lib.getRecipe(name)
     return nil
 end
 
-function ae2_lib.getCpuByName(cpuName)
-    component = require("component")
-    me = component.me_interface
-    for _, cpu in pairs(me.getCpus()) do
-        if cpu.name == cpuName then
-            return cpu
-        end
-    end    
-    return nil
-end
-
 function ae2_lib.requestRecipeCancel(recipe, amount, cpuName, delay)
     component = require("component")
     os = require("os")
-
     me = component.me_interface
-    cpu = getCpuByName(cpuName)
+    cpu = nil
+
+    component = require("component")
+    me = component.me_interface
+    for _, v in pairs(me.getCpus()) do
+        if v.name == cpuName then
+            cpu = v
+        end
+    end    
+
     recipe.request(amount, False, cpuName)
     os.sleep(delay)
     cpu.cpu.cancel()
