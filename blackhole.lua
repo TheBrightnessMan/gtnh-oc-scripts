@@ -29,7 +29,6 @@ end
 if compressor == nil then error("Black Hole Compressor not found!") end
 if crib1 == nil then error("Crib 1 not found!") end
 if crib2 == nil then error("Crib 2 not found!") end
-compressor.setWorkAllowed(false)
 
 open = ae2_lib.getRecipe("Open")
 close = ae2_lib.getRecipe("Close")
@@ -68,15 +67,13 @@ while true do
 
   if not hasRecipes then
     print("No recipes, sleeping 10...")
-    compressor.setWorkAllowed(false)
     os.sleep(10)
   else
     print("Has recipe, opening black hole...")
-    ae2_lib.requestRecipeCancel(open, 1, "Black Hole", 1)
+    ae2_lib.requestRecipeCancel(open, 1, "Black Hole", 3)
     stability = 100.0
-    compressor.setWorkAllowed(true)
-    
-    while stability > 3.0 do
+  
+    while stability >= 1.0 do
       print("Stability:", stability)
       decay = 1.0
       if compressor.isMachineActive() then
@@ -85,8 +82,7 @@ while true do
       stability = stability - decay
       os.sleep(1)
     end    
-    ae2_lib.requestRecipeCancel(close, 1, "Black Hole", 2)
-    compressor.setWorkAllowed(false)
+    ae2_lib.requestRecipeCancel(close, 1, "Black Hole", 3)
     print("Unstable black hole, closing it...")
   end
 end
