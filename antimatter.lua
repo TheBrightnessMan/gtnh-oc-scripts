@@ -48,8 +48,8 @@ while true do
             end
 
             ae2_lib.requestRecipeCancel(request_me, request_count, cpu, 0.05)
-            print("Done with insersion, sleeping 1 tick...")
-            os.sleep(0.05)
+            print("Done with insersion, sleeping 0.5 seconds...")
+            os.sleep(0.5)
         end
     end
 end
