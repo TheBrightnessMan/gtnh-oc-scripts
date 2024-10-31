@@ -5,7 +5,9 @@ gt = component.gt_machine
 
 recipe = ae2_lib.getRecipe("Grade 3")
 if recipe == nil then error("Recipe not found!") end
-print("Recipe found!")
+
+cpu = ae2_lib.getCpuByName("3")
+if cpu == nil then error("CPU 3 not found!") end
 
 while true do
     print("Starting cycle...")
@@ -20,7 +22,7 @@ while true do
 
         if amount == 0 then
             print("Requesting fluids...")
-            ae2_lib.requestRecipeCancel(recipe, 1, "3", 1)
+            ae2_lib.requestRecipeCancel(recipe, 1, cpu, 1)
         end
 
         sleep = ((2400 - gt.getWorkProgress()) // 20) + 3

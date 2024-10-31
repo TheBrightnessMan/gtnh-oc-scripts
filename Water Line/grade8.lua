@@ -17,6 +17,9 @@ for i = 1, 6 do
     if quarks[i] == nil then error("Quark " .. names[i] .. " not found!") end
 end
 
+cpu = ae2_lib.getCpuByName("8")
+if cpu == nil then error("CPU 8 not found!") end
+
 while true do
     print("Starting cycle...")
     if gt.getWorkMaxProgress() == 0 then
@@ -26,8 +29,8 @@ while true do
         for i = 1, 5 do
             for j = (i+1), 6 do
                 print("Inserting " .. names[i] .. ", " .. names[j])
-                ae2_lib.requestRecipeCancel(recipes[i], 1, 5, 1)
-                ae2_lib.requestRecipeCancel(recipes[j], 1, 5, 1)
+                ae2_lib.requestRecipeCancel(recipes[i], 1, cpu, 1)
+                ae2_lib.requestRecipeCancel(recipes[j], 1, cpu, 1)
 
                 info = gt.getSensorInformation()
                 success_String = info[#info]
