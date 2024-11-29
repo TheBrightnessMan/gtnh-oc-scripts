@@ -16,6 +16,10 @@ if cpu == nil then error("CPU Antimatter not found!") end
 
 while true do
     print("Starting cycle...")
+    -- Empty hatches
+    redstone.setOutput(3, 15)
+    os.sleep(0.05)
+    redstone.setOutput(3, 0)
     
     antimatter = me.getItemsInNetwork({label = "drop of Semi-Stable Antimatter"})[1]
     if antimatter == nil then
@@ -43,13 +47,9 @@ while true do
                 print("Less than 16k, put " .. tonumber(request_count) .. " in each hatch")
             end
             
-            -- Empty hatches
-            redstone.setOutput(3, 15)
-            os.sleep(0.05)
-            redstone.setOutput(3, 0)
             ae2_lib.requestRecipeCancel(request_me, request_count, cpu, 0.05)
-            print("Done with insersion, sleeping 0.5 seconds...")
-            os.sleep(0.5)
+            print("Done with insersion, sleeping 0.9 seconds...")
+            os.sleep(0.9)
         end
     end
 end
