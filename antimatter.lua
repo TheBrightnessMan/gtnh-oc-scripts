@@ -17,7 +17,7 @@ while true do
         os.sleep(3)
     else
         antimatter = me.getItemsInNetwork({label = "drop of Semi-Stable Antimatter"})[1]
-        amount = antimatter.size // 16 * 16
+        amount = math.min(antimatter.size // 16, 2552) * 16
         transposer.transferFluid(sides.up, sides.east, amount)
         os.sleep((20 - gt.getWorkProgress()) / 20)
     end
