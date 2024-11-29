@@ -28,7 +28,7 @@ function ae2_lib.requestRecipeCancel(recipe, amount, cpu, delay)
     os = require("os")
     me = component.me_interface
 
-    recipe.request(amount, False, cpuName)
+    recipe.request(amount, False, cpu.name)
     os.sleep(delay)
     cpu.cpu.cancel()
 end
