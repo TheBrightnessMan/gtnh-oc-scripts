@@ -36,7 +36,7 @@ while true do
 
         if signal == 0 then
             print("Overloaded! Inserting Super Coolant...")
-            ae2_lib.requestRecipe(coolant, 1, cpu)
+            coolant.request(1)
         else
             bit1 = signal & 1
             bit2 = (signal >> 1) & 1
@@ -49,19 +49,19 @@ while true do
                     print("Bit 1 set, inserting gas...")
                     gasId = (signal >> 1) & 3
                     gas = bit1_input[gasId]
-                    ae2_lib.requestRecipe(gas, 1, cpu)
+                    gas.request(1)
                     print("Bit 1 decode successful!")
                 end
 
                 if bit2 == 1 then
                     print("Bit 2 set, inserting superconductor...")
-                    ae2_lib.requestRecipe(superconductor, 1, cpu)
+                    superconductor.request(1)
                     print("Bit 2 decode successful!")
                 end
 
                 if bit3 == 1 then
                     print("Bit 3 set, inserting neutronium...")
-                    ae2_lib.requestRecipe(neutronium, 1, cpu)
+                    neutronium.request(1)
                     print("Bit 3 decode successful!")
                 end
             end

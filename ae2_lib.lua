@@ -23,12 +23,4 @@ function ae2_lib.getCpuByName(cpuName)
     return nil
 end
 
-function ae2_lib.requestRecipe(recipe, amount, cpu)
-    component = require("component")
-    os = require("os")
-    me = component.me_interface
-
-    recipe.request(amount, False, cpu.name)
-end
-
 return ae2_lib
