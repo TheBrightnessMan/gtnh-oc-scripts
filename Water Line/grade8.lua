@@ -29,8 +29,8 @@ while true do
         for i = 1, 5 do
             for j = (i+1), 6 do
                 print("Inserting " .. names[i] .. ", " .. names[j])
-                ae2_lib.requestRecipeCancel(recipes[i], 1, cpu, 1)
-                ae2_lib.requestRecipeCancel(recipes[j], 1, cpu, 1)
+                ae2_lib.requestRecipe(recipes[i], 1, cpu)
+                ae2_lib.requestRecipe(recipes[j], 1, cpu)
 
                 info = gt.getSensorInformation()
                 success_String = info[#info]

@@ -72,7 +72,7 @@ while true do
     os.sleep(10)
   else
     print("Has recipe, opening black hole...")
-    ae2_lib.requestRecipeCancel(open, 1, cpu, 3)
+    ae2_lib.requestRecipe(open, 1, cpu)
     stability = 100.0
   
     while stability >= 1.0 do
@@ -84,7 +84,7 @@ while true do
       stability = stability - decay
       os.sleep(1)
     end    
-    ae2_lib.requestRecipeCancel(close, 1, cpu, 3)
+    ae2_lib.requestRecipe(close, 1, cpu)
     print("Unstable black hole, closing it...")
   end
 end

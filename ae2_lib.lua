@@ -23,14 +23,12 @@ function ae2_lib.getCpuByName(cpuName)
     return nil
 end
 
-function ae2_lib.requestRecipeCancel(recipe, amount, cpu, delay)
+function ae2_lib.requestRecipe(recipe, amount, cpu)
     component = require("component")
     os = require("os")
     me = component.me_interface
 
     recipe.request(amount, False, cpu.name)
-    os.sleep(delay)
-    cpu.cpu.cancel()
 end
 
 return ae2_lib

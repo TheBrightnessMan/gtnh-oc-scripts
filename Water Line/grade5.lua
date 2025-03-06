@@ -20,12 +20,12 @@ while true do
         for i = 1, 3, 1 do
             print("Loop " .. tostring(i))
             print("Requesting 100L of He Plasma...")
-            ae2_lib.requestRecipeCancel(he_plasma, 100, cpu, 2)
+            ae2_lib.requestRecipe(he_plasma, 100, cpu)
             print("Waiting 11 seconds for plasma to be consumed...")
             os.sleep(11)
 
             print("Requesting 2000L of Coolant...")
-            ae2_lib.requestRecipeCancel(coolant, 2000, cpu, 2)
+            ae2_lib.requestRecipe(coolant, 2000, cpu)
             print("Waiting 21 seconds for plasma to be consumed...")
             os.sleep(21)
         end
