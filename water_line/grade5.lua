@@ -26,7 +26,7 @@ while true do
 
             print("Requesting 2000L of Coolant...")
             coolant.request(1)
-            print("Waiting 21 seconds for plasma to be consumed...")
+            print("Waiting 21 seconds for coolant to be consumed...")
             os.sleep(21)
         end
         print("Completed 3 loops.")
