@@ -1,6 +1,7 @@
 component = require("component")
 os = require("os")
 ae2_lib = require("ae2_lib")
+sides = require("sides")
 gt = component.gt_machine
 redstone = component.redstone
 
