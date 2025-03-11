@@ -31,7 +31,7 @@ while true do
                 print("Inserting " .. names[i] .. ", " .. names[j])
                 recipes[i].request(1)
                 recipes[j].request(1)
-
+                os.sleep(1)
                 info = gt.getSensorInformation()
                 success_String = info[#info]
                 success = string.sub(success_String, 44)
