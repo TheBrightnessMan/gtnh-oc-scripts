@@ -16,9 +16,12 @@ while true do
         print("Machine off, sleeping 3s...")
         os.sleep(3)
     else
-        antimatter = me.getItemsInNetwork({label = "drop of Semi-Stable Antimatter"})[1]
-        amount = math.min(antimatter.size // 16, 2552) * 16
-        transposer.transferFluid(sides.up, sides.east, amount)
-        os.sleep((20 - gt.getWorkProgress()) / 20)
+        antimatter = me.getFluidsInNetwork({label = "Semi-Stable Antimatter"})[1]
+        if antimatter then
+            amount = math.min(antimatter.size // 16, 2552) * 16
+            print("Transfering " .. tostring(amount) .. "mL of Antimatter")
+            transposer.transferFluid(sides.up, sides.east, amount)
+            os.sleep((20 - gt.getWorkProgress()) / 20)
+        end
     end
 end
