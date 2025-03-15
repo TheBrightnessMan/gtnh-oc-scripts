@@ -1,4 +1,5 @@
 component = require("component")
+sides = require("sides")
 me = component.me_interface
 redstone = component.redstone
 transposer = component.transposer
@@ -18,7 +19,7 @@ while true do
     else
         antimatter = me.getFluidsInNetwork({label = "Semi-Stable Antimatter"})[1]
         if antimatter then
-            amount = math.min(antimatter.size // 16, 2552) * 16
+            amount = math.min(antimatter.amount // 16, 2552) * 16
             print("Transfering " .. tostring(amount) .. "mL of Antimatter")
             transposer.transferFluid(sides.up, sides.east, amount)
             os.sleep((20 - gt.getWorkProgress()) / 20)
